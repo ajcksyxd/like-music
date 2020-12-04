@@ -6,6 +6,8 @@ class Music < ApplicationRecord
     validates :audio
     validates :introduction
   end
+
+  mount_uploader :audio, AudioUploader
   
   belongs_to :user
   has_one_attached :image
