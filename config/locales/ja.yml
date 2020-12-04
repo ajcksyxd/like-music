@@ -3,3 +3,9 @@ ja:
    attributes:
      user:
        nickname: ニックネーム
+     music:
+       title: タイトル
+       artist: ミュージシャン
+       image: イメージ画像
+       audio: mp3 file
+       introduction: 曲紹介

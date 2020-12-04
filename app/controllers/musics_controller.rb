@@ -17,7 +17,7 @@ class MusicsController < ApplicationController
   end
 
   private
-  def item_params
-    params.require(:item).permit(:title, :artist, :image, :audio, :introduction).merge(user_id: current_user.id)
+  def music_params
+    params.require(:music).permit(:title, :artist, :image, :audio, :introduction).merge(user_id: current_user.id)
   end
 end
