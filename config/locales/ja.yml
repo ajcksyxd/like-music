@@ -5,7 +5,7 @@ ja:
        nickname: ニックネーム
      music:
        title: タイトル
-       artist: ミュージシャン
+       artist: アーティスト
        image: イメージ画像
        audio: mp3 file
        introduction: 曲紹介
