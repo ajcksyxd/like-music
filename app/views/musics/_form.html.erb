@@ -14,8 +14,9 @@
 
   <div class="field">
     <%= f.label :image, "イメージ画像" %><br />
-    <%= f.file_field :image %>
+    <%= f.file_field :image, id:"music-image" %>
   </div>
+  <div id="image-list"></div>
 
   <div class="field">
     <%= f.label :audio, "mp3 file" %><br />
