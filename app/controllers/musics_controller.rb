@@ -38,6 +38,13 @@ class MusicsController < ApplicationController
     end
   end
 
+  def destroy
+    music = Music.find(params[:id])
+    music.user_id = current_user.id
+    music.destroy
+    redirect_to root_path
+  end
+
   private
 
   def music_params
