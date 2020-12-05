@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card__body">
-    <%= link_to music.title, root_path, class: :card__title%>
+    <%= link_to music.title, music_path(music.id), class: :card__title%>
     <p class="card__summary">
       <%= music.artist %>
     </p>
     <%= link_to "by #{music.user.nickname}" , root_path, class: :card__user %>
   </div>
-  <%= link_to (image_tag music.image.variant(resize: '500x500')if music.image.attached?), root_path , class: :card__img %>
+  <%= link_to (image_tag music.image.variant(resize: '500x500')if music.image.attached?), music_path(music.id), class: :card__img %>
 </div>
