@@ -10,7 +10,7 @@
       <%= link_to "by #{@music.user.nickname}" , root_path, class: :prototype__user %>
       <% if user_signed_in? && current_user.id == @music.user_id %>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: "btn btn-outline-info" %>
+          <%= link_to "編集する", edit_music_path(@music.id), class: "btn btn-outline-info" %>
           <%= link_to "削除する", root_path, class: "btn btn-outline-danger" %>
         </div>
       <% end %>

@@ -72,6 +72,11 @@ a {
   margin-bottom: 40px;
 }
 
+.image-size {
+  width: 250px;
+  height: auto;
+}
+
 /* メイン */
 
 .greeting{
