@@ -1,5 +1,6 @@
 class MusicsController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :show]
+  before_action :set_music, only: [:show, :edit, :update]
 
   def index
     @musics = Music.all.includes(:user).order('created_at DESC')
@@ -20,12 +21,30 @@ class MusicsController < ApplicationController
   end
 
   def show
-    @music = Music.find(params[:id])
+  end
+
+  def edit
+    unless @music.user_id == current_user.id
+      redirect_to action: :index
+    end
+  end
+
+  def update
+    @music.user_id = current_user.id
+    if @music.update(prototype_params)
+      redirect_to prototype_path
+    else
+      render:edit
+    end
   end
 
   private
 
   def music_params
     params.require(:music).permit(:title, :artist, :image, :audio, :introduction).merge(user_id: current_user.id)
+  end
+
+  def set_music
+    @music = Music.find(params[:id])
   end
 end
