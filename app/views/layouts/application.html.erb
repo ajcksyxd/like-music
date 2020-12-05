@@ -21,7 +21,7 @@
           <% if user_signed_in? %>
             <div class="nav__right"> 
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-outline-secondary" %>
-              <%= link_to "New Proto", "#", class: "btn btn-outline-primary" %>
+              <%= link_to "New Music", new_music_path, class: "btn btn-outline-primary" %>
             </div> 
           <% else %>
             <div class="nav__right">

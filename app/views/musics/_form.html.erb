@@ -1,25 +1,33 @@
-<%= form_with local: true do |f|%>
+<%= form_with(model: music, local: true) do |f|%>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
   <div class="field">
-    <%= f.label :hoge, "プロトタイプの名称" %><br />
-    <%= f.text_field :hoge %>
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :hoge, "キャッチコピー" %><br />
-    <%= f.text_area :hoge, class: :form__text %>
+    <%= f.label :artist, "アーティスト" %><br />
+    <%= f.text_field :artist %>
   </div>
 
   <div class="field">
-    <%= f.label :hoge, "コンセプト" %><br />
-    <%= f.text_area :hoge, class: :form__text %>
+    <%= f.label :image, "イメージ画像" %><br />
+    <%= f.file_field :image %>
   </div>
 
   <div class="field">
-    <%= f.label :hoge, "プロトタイプの画像" %><br />
-    <%= f.file_field :hoge %>
+    <%= f.label :audio, "mp3 file" %><br />
+    <%= f.file_field :audio %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, "曲紹介" %><br />
+    <%= f.text_area :introduction, class: :form__text %>
   </div>
 
   <div class="actions">
-    <%= f.submit "保存する", class: :form__btn  %>
+    <%= f.submit "保存する", class: "btn btn-outline-success" %>
   </div>
 <% end %>
