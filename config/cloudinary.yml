@@ -10,6 +10,8 @@ production:
   api_secret: <%= ENV['CLOUDINARY_API_SECRET'] %>
   enhance_image_tag: true
   static_file_support: false
+  secure: true
+  cdn_domain: true
 test:
   cloud_name: <%= ENV['CLOUD_NAME'] %>
   api_key: <%= ENV['CLOUDINARY_API_KEY'] %>
