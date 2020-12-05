@@ -31,8 +31,8 @@ class MusicsController < ApplicationController
 
   def update
     @music.user_id = current_user.id
-    if @music.update(prototype_params)
-      redirect_to prototype_path
+    if @music.update(music_params)
+      redirect_to music_path
     else
       render:edit
     end
