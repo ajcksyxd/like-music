@@ -2,32 +2,32 @@
   <div class="inner">
     <div class="prototype__wrapper">
       <p class="prototype__hedding">
-        <%= "プロトタイプのタイトル"%>
+        <%= @music.title %>
       </p>
-      <%= link_to "by プロトタイプの投稿者", root_path, class: :prototype__user %>
-      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <p class="prototype__hedding">
+        <%= @music.artist %>
+      </p>
+      <%= link_to "by #{@music.user.nickname}" , root_path, class: :prototype__user %>
+      <% if user_signed_in? && current_user.id == @music.user_id %>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
-          <%= link_to "削除する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", root_path, class: "btn btn-outline-info" %>
+          <%= link_to "削除する", root_path, class: "btn btn-outline-danger" %>
         </div>
-      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <% end %>
       <div class="prototype__image">
-        <%= image_tag "プロトタイプの画像" %>
+        <%= image_tag @music.image.variant(resize: '500x500')if @music.image.attached? %>
       </div>
       <div class="prototype__body">
         <div class="prototype__detail">
-          <p class="detail__title">キャッチコピー</p>
+          <p class="detail__title">曲紹介</p>
           <p class="detail__message">
-            <%= "プロトタイプのキャッチコピー" %>
-          </p>
-        </div>
-        <div class="prototype__detail">
-          <p class="detail__title">コンセプト</p>
-          <p class="detail__message">
-            <%= "プロトタイプのコンセプト" %>
+            <%= @music.introduction %>
           </p>
         </div>
       </div>
+      <audio src= "<%= "#{@music.audio}" %>" controls="">
+        <a src="<%= "#{@music.audio}" %>">ダウンロード</a>
+      </audio>
       <div class="prototype__comments">
         <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
           <%# <%= form_with local: true do |f|%>
