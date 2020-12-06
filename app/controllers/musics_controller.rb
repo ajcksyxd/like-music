@@ -21,12 +21,12 @@ class MusicsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @music.comments.includes(:user).order('created_at DESC')
   end
 
   def edit
-    unless @music.user_id == current_user.id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless @music.user_id == current_user.id
   end
 
   def update
@@ -34,7 +34,7 @@ class MusicsController < ApplicationController
     if @music.update(music_params)
       redirect_to music_path
     else
-      render:edit
+      render :edit
     end
   end
 
