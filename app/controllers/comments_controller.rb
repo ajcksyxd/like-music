@@ -6,12 +6,13 @@ class CommentsController < ApplicationController
     else
       @music = @comment.music
       @comments = @music.comments
-      render "musics/show"
+      render 'musics/show'
     end
   end
 
   private
+
   def comment_params
-    params.require(:comment).permit(:text).merge(user_id: current_user.id, music_id: params[:music_id] )
+    params.require(:comment).permit(:text).merge(user_id: current_user.id, music_id: params[:music_id])
   end
 end
