@@ -7,7 +7,7 @@
       <p class="prototype__hedding">
         <%= @music.artist %>
       </p>
-      <%= link_to "by #{@music.user.nickname}" , root_path, class: :prototype__user %>
+      <%= link_to "by #{@music.user.nickname}" , "/users/#{@music.user.id}", class: :prototype__user %>
       <% if user_signed_in? && current_user.id == @music.user_id %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_music_path(@music.id), class: "btn btn-outline-info" %>
@@ -36,7 +36,7 @@
               <%= f.text_field :text %>
             </div>
             <div class="actions">
-              <%= f.submit "送信する", class: :form__btn  %>
+              <%= f.submit "送信する", class: "btn btn-outline-info" %>
             </div>
           <% end %> 
         <% end %> 
@@ -45,7 +45,7 @@
             <% @comments.each do |comment| %>
             <li class="comments_list">
               <%= comment.text %>
-              <strong><%= link_to comment.user.nickname, root_path , class: :comment_user %></strong>
+              <strong><%= link_to comment.user.nickname, "/users/#{comment.user.id}", class: :comment_user %></strong>
             </li>
             <% end %>
           <% end %>
