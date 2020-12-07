@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 //= require audiojs
 require('./preview')
+require('jquery')
 
 import 'bootstrap'
 import '../stylesheets/application'
