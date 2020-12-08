@@ -74,3 +74,5 @@ group :production do
 end
 
 gem 'audiojs-rails'
+
+gem 'kaminari'
