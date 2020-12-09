@@ -3,7 +3,7 @@ class MusicsController < ApplicationController
   before_action :set_music, only: [:show, :edit, :update]
 
   def index
-    @musics = Music.all.includes(:user).order('created_at DESC')
+    @musics = Music.page(params[:page]).per(6).includes(:user).order('created_at DESC')
   end
 
   def new

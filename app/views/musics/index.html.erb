@@ -2,8 +2,8 @@
   <div class="inner">
     <% if user_signed_in? %>
     <div class="greeting">
-      <%= "ようこそ、" %>
-      <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
+      <%= "ようこそ" %>
+      <%= link_to "#{current_user.nickname}さん", "/users/#{current_user.id}", class: "btn btn-link" %>
     </div> 
     <% end %>
     <div class="card__wrapper">
@@ -11,3 +11,4 @@
     </div>
   </div>
 </main>
+<%= paginate(@musics) %>
