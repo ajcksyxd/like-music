@@ -27,8 +27,8 @@ test2@test.com
 <br/>
 
 # Basic認証  
-ID:tkbp  
-PASS:5675  
+ID:admin  
+PASS:2222  
 <br/>
 
 # 利用方法
